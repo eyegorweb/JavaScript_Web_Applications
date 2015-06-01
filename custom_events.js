@@ -29,9 +29,3 @@ var exports = this;
   };
 
 })(jQuery);
-
-Events.bind("hail", function(type){
-  alert("Long live the " + type)
-});
-
-Events.trigger("hail", "Users");

@@ -6,6 +6,14 @@
   
   <script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="custom_events.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    Events.bind("hail", function(type){
+      alert("Long live the " + type)
+    });
+    
+    Events.trigger("hail", "Testers");
+  </script>
+  
 </head>
 <body>
 </body>
