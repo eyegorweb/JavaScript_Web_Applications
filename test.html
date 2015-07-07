@@ -7,11 +7,24 @@
   <script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="custom_events.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
+    console.log(this);
+    console.log(Events);
+    // First customized event
+    // Define a customized event: "hail"
     Events.bind("hail", function(type){
-      alert("Long live the " + type)
+      console.log("Long live the " + type)
     });
-    
+    // Execute the customized event
     Events.trigger("hail", "Testers");
+    
+    // Second customized event
+    // Define a customized event: "toto"
+    var toto = function(val){
+      console.log(val);
+    }
+    Events.bind("toto", toto);
+    // Execute the customized event
+    Events.trigger("toto", "toto");
   </script>
   
 </head>
