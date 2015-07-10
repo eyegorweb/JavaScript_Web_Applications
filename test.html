@@ -6,7 +6,7 @@
   
   <script src="lib/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="custom_events.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
+  <!--<script type="text/javascript" charset="utf-8">
     console.log(this);
     console.log(Events);
     // First customized event
@@ -25,6 +25,65 @@
     Events.bind("toto", toto);
     // Execute the customized event
     Events.trigger("toto", "toto");
+  </script>-->
+  
+  <script type="text/javascript" charset="utf-8">
+//    function ExceptionUtilisateur(message) {
+//   this.message = message;
+//   this.name = "ExceptionUtilisateur";
+//}
+//function getNomMois(mo) {
+//   mo = mo-1; // Adjust month number for array index (1=Jan, 12=Dec)
+//   var mois = ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil",
+//      "Août", "Sept", "Oct", "Nov", "Déc"];
+//   if (mois[mo] !== undefined) {
+//      return mois[mo];
+//   } else {
+//      throw new ExceptionUtilisateur("Numéro de mois " + mo + " invalide");
+//   }
+//}
+//
+//try {
+//   // les instructions à tenter
+//   var monMois = 15; // 15 est en dehors des limites prévues
+//   var nomMois = getNomMois(monMois);
+//} catch (e) {
+//   nomMois = "unknown";
+//   console.log(e.message, e.name); // on passe les caractéristiques de l'exception
+//                                  // à un gestionnaire d'erreur
+//}
+
+
+
+    var customError = function(message){
+      this.message = message;
+      this.name = "customError";
+    }
+    var assert = function(value, msg) {
+      if ( !value )
+        throw new customError(msg || (value + " does not equal true"));
+    };
+    var assertEqual = function(val1, val2, msg) {
+      msg = null;
+      if (val1 !== val2)
+        throw new customError(val1 + " does not equal " + val2);
+    };
+  </script>
+  
+  <script type="text/javascript" charset="utf-8">
+    //assert( 'eric' !== 'eeric');
+    //
+    //assertEqual( "1", 2 );
+    
+    try {
+   // les instructions à tenter
+   assert( 'eric' !== 'eeric');
+   assertEqual( "1", 2 );
+} catch (e) {
+   
+   console.log(e.message, e.name); // on passe les caractéristiques de l'exception
+                                  // à un gestionnaire d'erreur
+}
   </script>
   
 </head>
